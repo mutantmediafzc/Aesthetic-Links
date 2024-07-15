@@ -1,0 +1,9 @@
+{
+    "require": {
+        "stripe/stripe-php": "^13.11",
+        "paypal/rest-api-sdk-php": "^1.0",
+        "twilio/sdk": "^7.16",
+        "google/apiclient": "^2.0",
+        "pear/mail": "^2.0"
+    }
+}
