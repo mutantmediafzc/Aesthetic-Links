@@ -8,6 +8,24 @@ $keytime = htmlspecialchars($_GET['time'] ?? null);
 $keyexpert = htmlspecialchars($_GET['expert'] ?? null);
 $keynote = htmlspecialchars($_GET['note'] ?? null);
 
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+if (isset($_SESSION['query_params'])) {
+  unset($_SESSION['query_params']);
+}
+$query_params = [
+  'cunique' => $cunique,
+  'cid' => $cid,
+  'date' => $keydate,
+  'time' => $keytime,
+  'expert' => $keyexpert,
+  'note' => $keynote,
+  'redirect' => "book-now-max-discount.php",
+];
+$_SESSION['query_params'] = $query_params;
+
 ?>
 
 
@@ -91,10 +109,6 @@ $keynote = htmlspecialchars($_GET['note'] ?? null);
         <p>Please Sign In to your account.</p>
       </div>
     </div>
-    <input type="hidden" name="keydate" value="<?= $keydate ?>">
-    <input type="hidden" name="keytime" value="<?= $keytime ?>">
-    <input type="hidden" name="keyexpert" value="<?= $keyexpert ?>">
-    <input type="hidden" name="keynote" value="<?= $keynote ?>">
 
     <div class="col-12 main-content">
       <?php if (isset($_SESSION['login_errors'])) : ?>
@@ -108,6 +122,11 @@ $keynote = htmlspecialchars($_GET['note'] ?? null);
       <?php endif; ?>
 
       <form action="authenticate.service.treatment.php?cunique=<?= $cunique ?>&id=<?= $cid ?>" method="POST">
+        <input type="hidden" name="keydate" value="<?= $keydate ?>">
+        <input type="hidden" name="keytime" value="<?= $keytime ?>">
+        <input type="hidden" name="keyexpert" value="<?= $keyexpert ?>">
+        <input type="hidden" name="keynote" value="<?= $keynote ?>">
+
         <div class="mb-2">
           <label for="exampleInputEmail1" class="form-label m-0">Email address <span class="required-astrict">*</span></label>
           <div class="input-icon">
@@ -188,6 +207,7 @@ $keynote = htmlspecialchars($_GET['note'] ?? null);
       </div>
     </div>
     <div class="col-12  footer text-center  ">
+
       <p>Don’t Have An Account Yet? <a href="register.blade.php" class="text-primary"> Register</a></p>
     </div>
   </div>

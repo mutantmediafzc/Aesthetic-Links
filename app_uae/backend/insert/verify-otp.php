@@ -7,6 +7,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 $errors = [];
 
+$query_params = $_SESSION['query_params'] ?? [];
+
+// Assign default values if the parameters are not set
+$cunique = htmlspecialchars($query_params['cunique'] ?? '');
+$cid = htmlspecialchars($query_params['cid'] ?? '');
+$keydate = htmlspecialchars($query_params['date'] ?? '');
+$keytime = htmlspecialchars($query_params['time'] ?? '');
+$keyexpert = htmlspecialchars($query_params['expert'] ?? '');
+$keynote = htmlspecialchars($query_params['note'] ?? '');
+$redirect = htmlspecialchars($query_params['redirect'] ?? 'landing-page.blade.php');
+
+// die($redirect);
+if (!empty($redirect) && isset($redirect)) {
+    $url = "$redirect?cunique=$cunique&id=$cid&date=$keydate&time=$keytime&expert=$keyexpert&note=$keynote";
+} else {
+    $url = "landing-page.blade.php";
+}
+
 if ($_POST['code1'] === '' || $_POST['code2'] === '' || $_POST['code3'] === '' || $_POST['code4'] === '') {
     $errors[] = "All OTP fields are required.";
 } else {
@@ -77,8 +95,9 @@ if ($stmt = $con->prepare('SELECT id , username , userlevel FROM accounts WHERE 
             unset($_SESSION["phone_number"]);
             unset($_SESSION['registration_data']);
             unset($_SESSION['old_input']);
+            unset($_SESSION['query_params']);
 
-            header('Location: ../../login.blade.php');
+            header('Location: ../../' . $url);
             exit();
         } else {
             $errors[] = "Failed to prepare the update statement.";

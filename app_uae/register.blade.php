@@ -276,6 +276,7 @@ require("./auth-check.php");
     </div>
     <div class="col-12 main-content">
       <form action="./backend/insert/register.php" method="POST">
+
         <?php
 
         if (isset($_SESSION['errors_register'])) {

@@ -2047,94 +2047,94 @@ if ($result->num_rows > 0) {
             </div>
         </div>
         <?php if ($isFeatured) { ?>
-        <div class="result featured">
-            <?php
-            $stmt = "SELECT c.*, COUNT(r.id) as total_reviews, AVG(r.rating) AS average_rating FROM clinics c LEFT JOIN reviews r ON c.cunique = r.cunique COLLATE utf8mb4_unicode_ci WHERE c.approval = 'approved' AND c.ccountry = 'UAE' AND c.id = {$clinicId} GROUP BY c.cunique";
+            <div class="result featured">
+                <?php
+                $stmt = "SELECT c.*, COUNT(r.id) as total_reviews, AVG(r.rating) AS average_rating FROM clinics c LEFT JOIN reviews r ON c.cunique = r.cunique COLLATE utf8mb4_unicode_ci WHERE c.approval = 'approved' AND c.ccountry = 'UAE' AND c.id = {$clinicId} GROUP BY c.cunique";
 
-            $result = $con->query($stmt);
-            $results = $result->fetch_all(MYSQLI_ASSOC);
+                $result = $con->query($stmt);
+                $results = $result->fetch_all(MYSQLI_ASSOC);
 
-            shuffle($results);
+                shuffle($results);
 
-            foreach ($results as $row) {
-                $avgRating = round($row['average_rating'], 1) == 0 ? 'New' :  round($row['average_rating'], 1);
+                foreach ($results as $row) {
+                    $avgRating = round($row['average_rating'], 1) == 0 ? 'New' :  round($row['average_rating'], 1);
 
-                if ($row['ctype'] == 'Male Only') {
-                    $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/3.svg">';
-                } else if ($row['ctype'] == 'Female Only') {
-                    $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/2.svg">';
-                } else {
-                    $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/1.svg">';
-                }
-            ?>
+                    if ($row['ctype'] == 'Male Only') {
+                        $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/3.svg">';
+                    } else if ($row['ctype'] == 'Female Only') {
+                        $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/2.svg">';
+                    } else {
+                        $imgClinic = '<img style="height:15px; margin-left:4px; margin-right:4px;" src="assets/images/gender/1.svg">';
+                    }
+                ?>
 
-                <a id="div" class="div" href="<?php echo 'clinic-details.blade.php?id=' . $row['id'] . '&cunique=' . $row['cunique'] ?>" style="text-decoration: none">
-                    <div class="wrapper">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="<?php echo "assets/images/clinic-images/" . $row['cunique'] . '.png' ?>" alt="Clinic">
-                                <div class="card-location"><i class="fas fa-map-marker-alt"></i><?php echo $row['ccity'] . ', ' . $row['ccountry'] ?></div>
-                                <div class="card-logo">
-                                    <img src="<?php echo "assets/images/clinic-logos/" . $row['cunique'] . '.png' ?>" alt="Clinic Logo">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-header">
-                                    <h2><?php echo $row['cname'] ?></h2>
-                                    <div class="card-price">
-                                        <?php
-                                        if ($row['cpricelevel'] == 3) {
-
-                                        ?>
-                                            <span class="price-tier">$$$</span>
-                                        <?php } ?>
-                                        <?php
-                                        if ($row['cpricelevel'] == 2) {
-
-                                        ?>
-                                            <span class="price-tier">$$</span>
-                                            <span class="ordinary-price-tier">$</span>
-                                        <?php } ?>
-                                        <?php
-                                        if ($row['cpricelevel'] == 1) {
-
-                                        ?>
-                                            <span class="price-tier">$</span>
-                                            <span class="ordinary-price-tier">$</span>
-                                            <span class="ordinary-price-tier">$</span>
-                                        <?php } ?>
+                    <a id="div" class="div" href="<?php echo 'clinic-details.blade.php?id=' . $row['id'] . '&cunique=' . $row['cunique'] ?>" style="text-decoration: none">
+                        <div class="wrapper">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="<?php echo "assets/images/clinic-images/" . $row['cunique'] . '.png' ?>" alt="Clinic">
+                                    <div class="card-location"><i class="fas fa-map-marker-alt"></i><?php echo $row['ccity'] . ', ' . $row['ccountry'] ?></div>
+                                    <div class="card-logo">
+                                        <img src="<?php echo "assets/images/clinic-logos/" . $row['cunique'] . '.png' ?>" alt="Clinic Logo">
                                     </div>
                                 </div>
-                                <div class="card-rating">
-                                    <?php
-                                    if ($avgRating != 'New') {
-                                    ?>
-                                        <span class="rating">5.0<i class="fas fa-star"></i></span>
-                                        <span class="reviews" style="margin-right: 0;">Reviews</span>
-                                    <?php } else { ?>
-                                        <span class="rating"><i class="fas fa-star" style="margin-bottom: 2px; font-size: 15px"></i></span>
-                                        <span class="reviews" style="color: #888; margin-right: 4px; margin-top: 3px">New</span>
-                                    <?php } ?>
-                                    <div class="vertical-line"></div>
-                                    <span class="gender"><?php echo $imgClinic ?> </span>
-                                    <span style="margin-top: 3px"><?php echo $row['ctype'] ?></span>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <h2><?php echo $row['cname'] ?></h2>
+                                        <div class="card-price">
+                                            <?php
+                                            if ($row['cpricelevel'] == 3) {
+
+                                            ?>
+                                                <span class="price-tier">$$$</span>
+                                            <?php } ?>
+                                            <?php
+                                            if ($row['cpricelevel'] == 2) {
+
+                                            ?>
+                                                <span class="price-tier">$$</span>
+                                                <span class="ordinary-price-tier">$</span>
+                                            <?php } ?>
+                                            <?php
+                                            if ($row['cpricelevel'] == 1) {
+
+                                            ?>
+                                                <span class="price-tier">$</span>
+                                                <span class="ordinary-price-tier">$</span>
+                                                <span class="ordinary-price-tier">$</span>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                    <div class="card-rating">
+                                        <?php
+                                        if ($avgRating != 'New') {
+                                        ?>
+                                            <span class="rating">5.0<i class="fas fa-star"></i></span>
+                                            <span class="reviews" style="margin-right: 0;">Reviews</span>
+                                        <?php } else { ?>
+                                            <span class="rating"><i class="fas fa-star" style="margin-bottom: 2px; font-size: 15px"></i></span>
+                                            <span class="reviews" style="color: #888; margin-right: 4px; margin-top: 3px">New</span>
+                                        <?php } ?>
+                                        <div class="vertical-line"></div>
+                                        <span class="gender"><?php echo $imgClinic ?> </span>
+                                        <span style="margin-top: 3px"><?php echo $row['ctype'] ?></span>
+                                    </div>
+                                    <p>
+                                        <?php
+                                        $bio = $row['cbio'];
+                                        if (strlen($bio) > 50) {
+                                            $bio = substr($bio, 0, 96) . '...';
+                                        }
+                                        echo $bio;
+                                        ?>
+                                    </p>
                                 </div>
-                                <p>
-                                    <?php
-                                    $bio = $row['cbio'];
-                                    if (strlen($bio) > 50) {
-                                        $bio = substr($bio, 0, 96) . '...';
-                                    }
-                                    echo $bio;
-                                    ?>
-                                </p>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-            <?php } ?>
-        </div>
+                <?php } ?>
+            </div>
 
         <?php } ?>
         <div class="result">

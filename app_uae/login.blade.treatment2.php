@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 $cunique = $_GET['cunique'];
 $cid = $_GET['id'];
 
@@ -7,6 +9,23 @@ $keydate = htmlspecialchars($_GET['date'] ?? null);
 $keytime = htmlspecialchars($_GET['time'] ?? null);
 $keyexpert = htmlspecialchars($_GET['expert'] ?? null);
 $keynote = htmlspecialchars($_GET['note'] ?? null);
+
+
+
+if (isset($_SESSION['query_params'])) {
+  unset($_SESSION['query_params']);
+}
+$query_params = [
+  'cunique' => $cunique,
+  'cid' => $cid,
+  'date' => $keydate,
+  'time' => $keytime,
+  'expert' => $keyexpert,
+  'note' => $keynote,
+  'redirect' => "book-now-discount.php",
+];
+$_SESSION['query_params'] = $query_params;
+
 
 ?>
 
