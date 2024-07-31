@@ -17,7 +17,22 @@ $client->addScope("profile");
 
 $loginType = $_SESSION['login_type'] ?? "social";
 $errors = [];
+$query_params = $_SESSION['query_params'] ?? [];
 
+$cunique = htmlspecialchars($query_params['cunique'] ?? '');
+$cid = htmlspecialchars($query_params['cid'] ?? '');
+$keydate = htmlspecialchars($query_params['date'] ?? '');
+$keytime = htmlspecialchars($query_params['time'] ?? '');
+$keyexpert = htmlspecialchars($query_params['expert'] ?? '');
+$keynote = htmlspecialchars($query_params['note'] ?? '');
+$redirect = htmlspecialchars($query_params['redirect'] ?? 'landing-page.blade.php');
+
+// die($redirect);
+if (!empty($redirect) && isset($redirect)) {
+    $url = "$redirect?cunique=$cunique&id=$cid&date=$keydate&time=$keytime&expert=$keyexpert&note=$keynote";
+} else {
+    $url = "landing-page.blade.php";
+}
 
 if (isset($_GET['code'])) {
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
@@ -79,7 +94,7 @@ if (isset($_GET['code'])) {
                         $_SESSION['id'] = $id;
                         $_SESSION['currency'] = $selectedCurrency;
                         $_SESSION['userlevel'] = $userlevel;
-                        header('Location:  profile.blade.php');
+                        header('Location: ' . $url);
                     } else {
 
                         $registration_data_social = [
