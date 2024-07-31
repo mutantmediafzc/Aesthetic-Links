@@ -69,6 +69,7 @@ if (isset($_GET['code'])) {
                 $result = $stmt2->get_result();
                 $row_2 = $result->fetch_assoc();
                 $verified = $row_2['verified'];
+                $id = $row_2['id'];
 
                 if ($result->num_rows > 0) {
 

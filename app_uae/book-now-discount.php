@@ -36,10 +36,11 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 ?>
-<?php require_once 'server.blade.php';?>
+<?php require_once 'server.blade.php'; ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aesthetic Links | Booking</title>
@@ -60,12 +61,23 @@ if (!isset($_SESSION['loggedin'])) {
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N7QLJTK5');</script>
-<!-- End Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N7QLJTK5');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <script src="https://kit.fontawesome.com/a49b3edde3.js" crossorigin="anonymous"></script>
@@ -73,11 +85,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @font-face {
         font-family: 'poppinsregular';
         src: url('poppins-regular-webfont.woff2') format('woff2'),
-        url('poppins-regular-webfont.woff') format('woff');
+            url('poppins-regular-webfont.woff') format('woff');
         font-weight: normal;
         font-style: normal;
 
     }
+
     /* -------------------------------exoert modal-------------------------------------- */
 
     .expertmodal {
@@ -89,8 +102,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     .expert-content {
@@ -119,8 +132,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     .time-content {
@@ -150,8 +163,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     .calendar-content {
@@ -181,8 +194,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     .modal-content {
@@ -533,8 +546,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         overflow: hidden;
         margin-bottom: 30px;
         overflow-x: hidden;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 
 
@@ -559,10 +574,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         display: none;
 
     }
+
     .radio-item {
         width: 100%;
         margin: auto;
     }
+
     .radio-item label {
         display: block;
         padding: 18px 10px;
@@ -579,6 +596,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         border: 2px solid #444444;
 
     }
+
     .radio-item label:after,
     .radio-item label:before {
         content: "";
@@ -586,6 +604,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         border: 0px;
 
     }
+
     .radio-item label:after {
         height: 19px;
         width: 19px;
@@ -594,6 +613,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         top: calc(50% - 12px);
 
     }
+
     .radio-item label:before {
         background: #524eee;
         height: 20px;
@@ -605,7 +625,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         visibility: hidden;
         transition: 0.4s ease-in-out 0s;
     }
-    .radio-item [type="radio"]:checked ~ label {
+
+    .radio-item [type="radio"]:checked~label {
         border-color: #0CB4BF;
         background-color: rgba(12, 180, 191, 0.5);
         border: 2px solid #0CB4BF;
@@ -616,10 +637,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-    label{
-        display:block;
-        line-height:40px;
+    label {
+        display: block;
+        line-height: 40px;
     }
+
     .option-input {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -643,24 +665,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         position: relative;
         z-index: 1000;
     }
+
     .option-input:hover {
         background: #9faab7;
     }
+
     .option-input:checked {
         background: #0CB4BF;
     }
+
     .option-input:checked::before {
         width: 40px;
         height: 40px;
-        display:flex;
+        display: flex;
         content: '\f00c';
         font-size: 25px;
-        font-weight:bold;
+        font-weight: bold;
         position: absolute;
-        align-items:center;
-        justify-content:center;
-        font-family:'Font Awesome 5 Free';
+        align-items: center;
+        justify-content: center;
+        font-family: 'Font Awesome 5 Free';
     }
+
     .option-input:checked::after {
         background: #0CB4BF;
         content: '';
@@ -668,9 +694,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         position: relative;
         z-index: 100;
     }
+
     .option-input.radio {
         border-radius: 50%;
     }
+
     .option-input.radio::after {
         border-radius: 50%;
     }
@@ -831,7 +859,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .service-description-text {
         width: 100%;
-        height:175px;
+        height: 175px;
         margin: 0;
         padding: 0;
         font-size: 28px
@@ -839,7 +867,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .btn-note {
         width: 100%;
-        height:auto;
+        height: auto;
         margin: 0;
         padding: 0;
         font-size: 28px;
@@ -917,8 +945,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         margin-bottom: 10px;
         overflow: scroll;
         overflow-x: hidden;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 
     .expert-radio-section::-webkit-scrollbar {
@@ -936,8 +966,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -1168,7 +1198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .service-description-text {
             width: 100%;
-            height:auto;
+            height: auto;
             margin: 0;
             padding: 0;
             font-size: 10pt;
@@ -1176,7 +1206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .btn-note {
             width: 100%;
-            height:auto;
+            height: auto;
             margin: 0;
             padding: 0;
             font-size: 8pt;
@@ -1312,8 +1342,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .time-content {
@@ -1357,6 +1387,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid #444444;
 
         }
+
         .radio-item label:after,
         .radio-item label:before {
             content: "";
@@ -1364,6 +1395,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 0px;
 
         }
+
         .radio-item label:after {
             height: 19px;
             width: 19px;
@@ -1385,7 +1417,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: 0.4s ease-in-out 0s;
         }
 
-        .radio-item [type="radio"]:checked ~ label {
+        .radio-item [type="radio"]:checked~label {
             border-color: #0CB4BF;
             background-color: rgba(12, 180, 191, 0.5);
             border: 1px solid #0CB4BF;
@@ -1490,8 +1522,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
         }
     }
 
@@ -1734,7 +1766,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .service-description-text {
             width: 100%;
-            height:auto;
+            height: auto;
             margin: 0;
             padding: 0;
             font-size: 10pt;
@@ -1742,7 +1774,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .btn-note {
             width: 100%;
-            height:auto;
+            height: auto;
             margin: 0;
             padding: 0;
             font-size: 8pt;
@@ -1888,8 +1920,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .time-content {
@@ -1933,6 +1965,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid #444444;
 
         }
+
         .radio-item label:after,
         .radio-item label:before {
             content: "";
@@ -1940,6 +1973,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 0px;
 
         }
+
         .radio-item label:after {
             height: 19px;
             width: 19px;
@@ -1961,7 +1995,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: 0.4s ease-in-out 0s;
         }
 
-        .radio-item [type="radio"]:checked ~ label {
+        .radio-item [type="radio"]:checked~label {
             border-color: #0CB4BF;
             background-color: rgba(12, 180, 191, 0.5);
             border: 1px solid #0CB4BF;
@@ -2071,8 +2105,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
         }
     }
 
@@ -2110,229 +2144,228 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .mbsc-page {
         padding: 1em;
     }
-
 </style>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7QLJTK5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<?php require_once 'server.blade.php';?>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7QLJTK5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <?php require_once 'server.blade.php'; ?>
 
 
-<!--- Fetch User Details ----->
+    <!--- Fetch User Details ----->
 
-<?php
+    <?php
 
-// We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
-$stmt = $con->prepare('SELECT username, email, userunique, userlevel, profilelevel FROM accounts WHERE id = ?');
-// In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['id']);
-$stmt->execute();
-$stmt->bind_result($username, $email, $userunique, $userlevel, $profilelevel);
-$stmt->fetch();
-$stmt->close();
+    // We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
+    $stmt = $con->prepare('SELECT username, email, userunique, userlevel, profilelevel FROM accounts WHERE id = ?');
+    // In this case we can use the account ID to get the account info.
+    $stmt->bind_param('i', $_SESSION['id']);
+    $stmt->execute();
+    $stmt->bind_result($username, $email, $userunique, $userlevel, $profilelevel);
+    $stmt->fetch();
+    $stmt->close();
 
-$today_date = date("m/d/Y");
+    $today_date = date("m/d/Y");
 
-?>
-<?php include 'nav.php'; ?>
+    ?>
+    <?php include 'nav.php'; ?>
 
-<!---- Menu Start --->
+    <!---- Menu Start --->
 
-<?php include 'menu.php'; ?>
-
-
-<input type="hidden" id="today_date" value="'.<?=$today_date?>.'">
+    <?php include 'menu.php'; ?>
 
 
-<!---- Menu End ----->
-
-<!-- ----------------------------menu modal end------------------------ -->
+    <input type="hidden" id="today_date" value="'.<?= $today_date ?>.'">
 
 
-<!-- ----------------------------timings modal end------------------------ -->
+    <!---- Menu End ----->
 
-<!-- time Modal -->
-<div id="calendarModal" class="calendarmodal">
+    <!-- ----------------------------menu modal end------------------------ -->
 
-    <div class="black-bar-container">
-        <div class="black-bar-modal"></div>
-    </div>
+
+    <!-- ----------------------------timings modal end------------------------ -->
 
     <!-- time Modal -->
-    <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
-
-
+    <div id="calendarModal" class="calendarmodal">
 
         <div class="black-bar-container">
             <div class="black-bar-modal"></div>
         </div>
 
-        <div class="spacer-modal">
-            <h1 style="margin: auto; margin-top:20px; width: 90%; ">Choose a Date</h1>
-        </div>
-        <div style="color:#DC143C;width:100%;display:none; margin-left: 23px;" id="error_message">
-            Please allow a minimum of 24 Hours.
-        </div>
-        <div class="spacer-modal">
-            <hr class="solid">
-        </div>
+        <!-- time Modal -->
+        <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
 
 
-        <div style="margin: auto; width: 95%; height: auto; border-radius: 10px; display: grid; grid-template-columns: repeat(1, 1fr); column-gap: 10px;">
-            <div mbsc-page class="demo-date-picker">
-                <div style="height: 35vh;">
-                    <!--<div id="demo"></div>-->
-                    <input id="date-input" mbsc-input style="display:none; height: none; widthL none;"/>
-                </div>
+
+            <div class="black-bar-container">
+                <div class="black-bar-modal"></div>
             </div>
-        </div>
 
-        <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-time" onclick="openTime()">Confirm</button></div>
-
-
-    </div>
-
-</div>
-
-<!-- ----------------------------timings modal end------------------------ -->
-
-
-<!-- ----------------------------timings modal end------------------------ -->
-
-<!-- time Modal -->
-<div id="timeModal" class="timemodal">
-
-    <div class="black-bar-container">
-        <div class="black-bar-modal"></div>
-    </div>
-
-    <!-- time Modal -->
-    <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
+            <div class="spacer-modal">
+                <h1 style="margin: auto; margin-top:20px; width: 90%; ">Choose a Date</h1>
+            </div>
+            <div style="color:#DC143C;width:100%;display:none; margin-left: 23px;" id="error_message">
+                Please allow a minimum of 24 Hours.
+            </div>
+            <div class="spacer-modal">
+                <hr class="solid">
+            </div>
 
 
-
-        <div class="black-bar-container">
-            <div class="black-bar-modal"></div>
-        </div>
-
-        <div class="spacer-modal" style="display:flex; justify-content: center; align-items: center;">
-            <h1 style="margin-top: 20px;">Choose a Time</h1>
-            <button class="back-modal" onclick="backCalendar()"><i class="fa-solid fa-arrow-left" style="-webkit-text-stroke: 0.5px white;"></i>&nbsp;Back</button>
-        </div>
-
-        <div class="spacer-modal">
-            <hr class="solid">
-        </div>
-
-        <div class="spacer-modal">
-            <p class="paragraph-5"><i style="color:#46AFB4;" class="fa fa-info-circle" aria-hidden="true"></i> <i>Choosing your ideal date and time doesn't guarantee it. The clinic will reach out to confirm or adjust based on their availability, considering your preferences.</i></p>
-        </div>
-
-        <div class="time">
             <div style="margin: auto; width: 95%; height: auto; border-radius: 10px; display: grid; grid-template-columns: repeat(1, 1fr); column-gap: 10px;">
-                <div class="radio-section">
-                    <div class="radio-item"><input name="radio" id="radio1" onclick="function1()" type="radio"><label for="radio1">10:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio2" onclick="function2()" type="radio"><label for="radio2">11:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio3" onclick="function3()" type="radio"><label for="radio3">12:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio4" onclick="function4()" type="radio"><label for="radio4">13:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio5" onclick="function5()" type="radio"><label for="radio5">14:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio6" onclick="function6()" type="radio"><label for="radio6">15:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio7" onclick="function7()" type="radio"><label for="radio7">16:00</label></div>
-                    <div class="radio-item"><input name="radio" id="radio8" onclick="function8()" type="radio"><label for="radio8">17:00</label></div>
-
-
+                <div mbsc-page class="demo-date-picker">
+                    <div style="height: 35vh;">
+                        <!--<div id="demo"></div>-->
+                        <input id="date-input" mbsc-input style="display:none; height: none; widthL none;" />
+                    </div>
                 </div>
             </div>
+
+            <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-time" onclick="openTime()">Confirm</button></div>
+
+
         </div>
-
-        <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-time" onclick="openExpert()">Confirm</button></div>
-
 
     </div>
 
-</div>
-
-<!-- ----------------------------timings modal end------------------------ -->
-
-<!-- ----------------------------discount modal end------------------------ -->
-
-                        <!-- time Modal -->
-                        <div id="discountModal" class="discountmodal">
-
-                            <div class="black-bar-container">
-                                <div class="black-bar-modal"></div>
-                            </div>
-
-                            <!-- time Modal -->
-                            <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
+    <!-- ----------------------------timings modal end------------------------ -->
 
 
+    <!-- ----------------------------timings modal end------------------------ -->
 
-                                <div class="black-bar-container">
-                                    <div class="black-bar-modal"></div>
-                                </div>
+    <!-- time Modal -->
+    <div id="timeModal" class="timemodal">
 
-                                <div class="spacer-modal" style="display:flex; justify-content: start; align-items: center;">
-                                    <h1 style="margin-left: 20px; margin-top: 20px; white-space: nowrap;">Enter discount code</h1>
-                                </div>
+        <div class="black-bar-container">
+            <div class="black-bar-modal"></div>
+        </div>
 
-                                <div class="spacer-modal">
-                                    <hr class="solid">
-                                </div>
-                                <div style=";width:100%;display:none; width: 90%; margin: auto;" id="alert_success" class="alert alert-success">
-                                    Discount Code Applied
-                                </div>
-                                <div style="color:#DC143C;width:100%;display:none; width: 90%; margin: auto;" id="alert_danger" class="alert alert-danger">
-                                    Invalid Discount Code
-                                </div>
-                                <div class="spacer-modal">
-                                    <p class="paragraph-5">You may skip this window if you don't have one.</p>
-                                </div>
-
-                                <div class="time">
-                                    <input type="text" id="discountCode" name="discountcode" placeholder="" style="text-indent: 10px; border-radius: 8px;">
-                                </div>
-
-                                <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-discount" onclick="confirmSched()">Confirm</button></div>
-
-
-                            </div>
-
-                        </div>
-
-        <!-- ----------------------------discount modal end------------------------ -->
-
-<!-- ----------------------------experts modal end------------------------ -->
-<?php
-
-$serviceId = isset($_GET['cunique']) ? strval($_GET['cunique']) : null;
-$cserviceId = isset($_GET['id']) ? strval($_GET['id']) : null;
-// Connect to database
-// Define your SQL query to select all projects
-//	$stmt = "SELECT * FROM services WHERE cunique = '$serviceId' AND id = '$cserviceId'";
-// In this case we can use the account ID to get the account info.
-$stmt = "SELECT s.*, COUNT(r.id) AS ratings_count, AVG(r.rating) AS average_rating FROM services s LEFT JOIN reviews r ON s.id = r.sunique WHERE s.cunique = '$serviceId' AND s.id = '$cserviceId'";
+        <!-- time Modal -->
+        <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
 
 
 
-$result = $con->query($stmt);
+            <div class="black-bar-container">
+                <div class="black-bar-modal"></div>
+            </div>
+
+            <div class="spacer-modal" style="display:flex; justify-content: center; align-items: center;">
+                <h1 style="margin-top: 20px;">Choose a Time</h1>
+                <button class="back-modal" onclick="backCalendar()"><i class="fa-solid fa-arrow-left" style="-webkit-text-stroke: 0.5px white;"></i>&nbsp;Back</button>
+            </div>
+
+            <div class="spacer-modal">
+                <hr class="solid">
+            </div>
+
+            <div class="spacer-modal">
+                <p class="paragraph-5"><i style="color:#46AFB4;" class="fa fa-info-circle" aria-hidden="true"></i> <i>Choosing your ideal date and time doesn't guarantee it. The clinic will reach out to confirm or adjust based on their availability, considering your preferences.</i></p>
+            </div>
+
+            <div class="time">
+                <div style="margin: auto; width: 95%; height: auto; border-radius: 10px; display: grid; grid-template-columns: repeat(1, 1fr); column-gap: 10px;">
+                    <div class="radio-section">
+                        <div class="radio-item"><input name="radio" id="radio1" onclick="function1()" type="radio"><label for="radio1">10:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio2" onclick="function2()" type="radio"><label for="radio2">11:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio3" onclick="function3()" type="radio"><label for="radio3">12:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio4" onclick="function4()" type="radio"><label for="radio4">13:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio5" onclick="function5()" type="radio"><label for="radio5">14:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio6" onclick="function6()" type="radio"><label for="radio6">15:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio7" onclick="function7()" type="radio"><label for="radio7">16:00</label></div>
+                        <div class="radio-item"><input name="radio" id="radio8" onclick="function8()" type="radio"><label for="radio8">17:00</label></div>
 
 
-?>
+                    </div>
+                </div>
+            </div>
 
-<?php
+            <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-time" onclick="openExpert()">Confirm</button></div>
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $avgRating = round($row['average_rating'] ?? 0,1) == 0 ? 'New' :  round($row['average_rating'],1);
 
-        ?>
+        </div>
 
-        <?php
+    </div>
 
-        echo '
+    <!-- ----------------------------timings modal end------------------------ -->
+
+    <!-- ----------------------------discount modal end------------------------ -->
+
+    <!-- time Modal -->
+    <div id="discountModal" class="discountmodal">
+
+        <div class="black-bar-container">
+            <div class="black-bar-modal"></div>
+        </div>
+
+        <!-- time Modal -->
+        <div class="time-content" style=" display: grid; grid-template-columns: repeat(1, 1fr);">
+
+
+
+            <div class="black-bar-container">
+                <div class="black-bar-modal"></div>
+            </div>
+
+            <div class="spacer-modal" style="display:flex; justify-content: start; align-items: center;">
+                <h1 style="margin-left: 20px; margin-top: 20px; white-space: nowrap;">Enter discount code</h1>
+            </div>
+
+            <div class="spacer-modal">
+                <hr class="solid">
+            </div>
+            <div style=";width:100%;display:none; width: 90%; margin: auto;" id="alert_success" class="alert alert-success">
+                Discount Code Applied
+            </div>
+            <div style="color:#DC143C;width:100%;display:none; width: 90%; margin: auto;" id="alert_danger" class="alert alert-danger">
+                Invalid Discount Code
+            </div>
+            <div class="spacer-modal">
+                <p class="paragraph-5">You may skip this window if you don't have one.</p>
+            </div>
+
+            <div class="time">
+                <input type="text" id="discountCode" name="discountcode" placeholder="" style="text-indent: 10px; border-radius: 8px;">
+            </div>
+
+            <div class="confirm-btn-box"><button class="book-now-calendar" id="confirm-discount" onclick="confirmSched()">Confirm</button></div>
+
+
+        </div>
+
+    </div>
+
+    <!-- ----------------------------discount modal end------------------------ -->
+
+    <!-- ----------------------------experts modal end------------------------ -->
+    <?php
+
+    $serviceId = isset($_GET['cunique']) ? strval($_GET['cunique']) : null;
+    $cserviceId = isset($_GET['id']) ? strval($_GET['id']) : null;
+    // Connect to database
+    // Define your SQL query to select all projects
+    //	$stmt = "SELECT * FROM services WHERE cunique = '$serviceId' AND id = '$cserviceId'";
+    // In this case we can use the account ID to get the account info.
+    $stmt = "SELECT s.*, COUNT(r.id) AS ratings_count, AVG(r.rating) AS average_rating FROM services s LEFT JOIN reviews r ON s.id = r.sunique WHERE s.cunique = '$serviceId' AND s.id = '$cserviceId'";
+
+
+
+    $result = $con->query($stmt);
+
+
+    ?>
+
+    <?php
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $avgRating = round($row['average_rating'] ?? 0, 1) == 0 ? 'New' :  round($row['average_rating'], 1);
+
+    ?>
+
+    <?php
+
+            echo '
         <div id="expertModal" class="expertmodal">
 
                             
@@ -2398,14 +2431,14 @@ if ($result->num_rows > 0) {
                             <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 95% 5%);">
                                 <div>
                                     <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 20% 75%); column-gap: 5%;">
-                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/'.$row['expert_id_1'].'.jpg" alt="" class="doc-img"></div>
-                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">'.$row['expert_name_1'].'</h1></div>
+                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/' . $row['expert_id_1'] . '.jpg" alt="" class="doc-img"></div>
+                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">' . $row['expert_name_1'] . '</h1></div>
 
                                     </div>
                                 </div>
                                 <div style="display: flex; justify-content: center; align-items: center;">
                                     <label>
-                                        <input type="radio" class="option-input radio" id="firstEX1" onclick="firstexpert()" value="'.$row['expert_id_1'].'" name="example"/>
+                                        <input type="radio" class="option-input radio" id="firstEX1" onclick="firstexpert()" value="' . $row['expert_id_1'] . '" name="example"/>
                                     </label>                                                        
                                 </div>
 
@@ -2421,13 +2454,13 @@ if ($result->num_rows > 0) {
                             <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 95% 5%);">
                                 <div>
                                     <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 20% 75%); column-gap: 5%;">
-                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/'.$row['expert_id_2'].'" alt="" class="doc-img"></div>
-                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">'.$row['expert_name_2'].'</h1></div>
+                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/' . $row['expert_id_2'] . '" alt="" class="doc-img"></div>
+                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">' . $row['expert_name_2'] . '</h1></div>
                                     </div>
                                 </div>
                                 <div style="display: flex; justify-content: center; align-items: center;">
                                     <label>
-                                        <input type="radio" class="option-input radio" id="secondEX"  onclick="secondexpert()" value="'.$row['expert_id_2'].'" name="example"/>
+                                        <input type="radio" class="option-input radio" id="secondEX"  onclick="secondexpert()" value="' . $row['expert_id_2'] . '" name="example"/>
                                     </label>                                                        
                                 </div>
 
@@ -2443,13 +2476,13 @@ if ($result->num_rows > 0) {
                             <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 95% 5%);">
                                 <div>
                                     <div style="width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, 20% 75%); column-gap: 5%;">
-                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/'.$row['expert_id_3'].'" alt="" class="doc-img"></div>
-                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">'.$row['expert_name_3'].'</h1></div>
+                                        <div style="width: 100%; height: 100%;"><img src="assets/images/experts/' . $row['expert_id_3'] . '" alt="" class="doc-img"></div>
+                                        <div style="display: flex; align-items: center;"><h1 class="doc-name">' . $row['expert_name_3'] . '</h1></div>
                                     </div>
                                 </div>
                                 <div style="display: flex; justify-content: center; align-items: center;">
                                     <label>
-                                        <input type="radio" class="option-input radio" id="thirdEX"  onclick="thirdexpert()" value="'.$row['expert_id_3'].'" name="example"/>
+                                        <input type="radio" class="option-input radio" id="thirdEX"  onclick="thirdexpert()" value="' . $row['expert_id_3'] . '" name="example"/>
                                     </label>                                                        
                                 </div>
 
@@ -2467,62 +2500,65 @@ if ($result->num_rows > 0) {
     </div>
 
 
-'; }
-} else { echo '<p>No service to display at the moment.</p>'; }?>
-<!-- expert Modal -->
-
-
-<!-- ----------------------------experts modal end------------------------ -->
-
-<?php
-
-$serviceId = isset($_GET['cunique']) ? strval($_GET['cunique']) : null;
-$cserviceId = isset($_GET['id']) ? strval($_GET['id']) : null;
-// Connect to database
-// Define your SQL query to select all projects
-//	$stmt = "SELECT * FROM services WHERE cunique = '$serviceId' AND id = '$cserviceId'";
-// In this case we can use the account ID to get the account info.
-
-$stmt = "SELECT s.*, COUNT(r.id) AS ratings_count, AVG(r.rating) AS average_rating FROM services s LEFT JOIN reviews r ON s.id = r.sunique WHERE s.cunique = '$serviceId' AND s.id = '$cserviceId'";
-
-$result = $con->query($stmt);
-
-
-?>
-<?php
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $avgRating = round($row['average_rating'] ?? 0,1) == 0 ? 'New' :  round($row['average_rating'],1);
-        if ($row['stype'] == 'Male Only') {
-            $img = '<img style="height:14px" src="assets/images/gender/3.svg">';
-        } else if ($row['stype'] == 'Female Only') {
-            $img = '<img style="height:14px" src="assets/images/gender/2.svg">';
-        } else {
-            $img = '<img style="height:14px" src="assets/images/gender/1.svg">';
+';
         }
-        ?>
+    } else {
+        echo '<p>No service to display at the moment.</p>';
+    } ?>
+    <!-- expert Modal -->
 
-        <?php
-        echo '
-	<input type="hidden" id="bigprice" name="sprice" value="'. $row['sprice'] . '" />
-	<input type="hidden" id="smallprice" name="scprice" value="'. $row['scprice'] . '" />
-	<input type="hidden" id="profile" name="profilelevel" value="'.$profilelevel. '" />
-	<input type="hidden" id="sname" name="sname" value="'. $row['sname'] . '" />
-    <input type="hidden" id="username" name="username" value="'.$username. '" />
-	<input type="hidden" id="cname" name="cname" value="'. $row['cname'] . '" />
-	<input type="hidden" id="scity" name="scity" value="'. $row['scity'] . '" />
-	<input type="hidden" id="scountry" name="scountry" value="'. $row['scountry'] . '" />
-	<input type="hidden" id="transaction" name="transaction_type" value="'. $row['transaction_type'] . '" />
-    <input type="hidden" id="service_id" name="" value="'.$_GET['id'].'" />
-	<input type="hidden" id="duration" name="duration" value="'. $row['stime'] . '" />
+
+    <!-- ----------------------------experts modal end------------------------ -->
+
+    <?php
+
+    $serviceId = isset($_GET['cunique']) ? strval($_GET['cunique']) : null;
+    $cserviceId = isset($_GET['id']) ? strval($_GET['id']) : null;
+    // Connect to database
+    // Define your SQL query to select all projects
+    //	$stmt = "SELECT * FROM services WHERE cunique = '$serviceId' AND id = '$cserviceId'";
+    // In this case we can use the account ID to get the account info.
+
+    $stmt = "SELECT s.*, COUNT(r.id) AS ratings_count, AVG(r.rating) AS average_rating FROM services s LEFT JOIN reviews r ON s.id = r.sunique WHERE s.cunique = '$serviceId' AND s.id = '$cserviceId'";
+
+    $result = $con->query($stmt);
+
+
+    ?>
+    <?php
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $avgRating = round($row['average_rating'] ?? 0, 1) == 0 ? 'New' :  round($row['average_rating'], 1);
+            if ($row['stype'] == 'Male Only') {
+                $img = '<img style="height:14px" src="assets/images/gender/3.svg">';
+            } else if ($row['stype'] == 'Female Only') {
+                $img = '<img style="height:14px" src="assets/images/gender/2.svg">';
+            } else {
+                $img = '<img style="height:14px" src="assets/images/gender/1.svg">';
+            }
+    ?>
+
+    <?php
+            echo '
+	<input type="hidden" id="bigprice" name="sprice" value="' . $row['sprice'] . '" />
+	<input type="hidden" id="smallprice" name="scprice" value="' . $row['scprice'] . '" />
+	<input type="hidden" id="profile" name="profilelevel" value="' . $profilelevel . '" />
+	<input type="hidden" id="sname" name="sname" value="' . $row['sname'] . '" />
+    <input type="hidden" id="username" name="username" value="' . $username . '" />
+	<input type="hidden" id="cname" name="cname" value="' . $row['cname'] . '" />
+	<input type="hidden" id="scity" name="scity" value="' . $row['scity'] . '" />
+	<input type="hidden" id="scountry" name="scountry" value="' . $row['scountry'] . '" />
+	<input type="hidden" id="transaction" name="transaction_type" value="' . $row['transaction_type'] . '" />
+    <input type="hidden" id="service_id" name="" value="' . $_GET['id'] . '" />
+	<input type="hidden" id="duration" name="duration" value="' . $row['stime'] . '" />
 	<input type="hidden" id="voucher" name="voucher"/>
 
     
-    <input type="hidden" id="condition1" name="" value="'. $row['expert_id_1'] . '" />
-    <input type="hidden" id="condition2" name="" value="'. $row['expert_id_2'] . '" />
-    <input type="hidden" id="condition3" name="" value="'. $row['expert_id_3'] . '" />
-        <input type="hidden" id="clinic_id" name="" value="'.$cunique.'" />
+    <input type="hidden" id="condition1" name="" value="' . $row['expert_id_1'] . '" />
+    <input type="hidden" id="condition2" name="" value="' . $row['expert_id_2'] . '" />
+    <input type="hidden" id="condition3" name="" value="' . $row['expert_id_3'] . '" />
+        <input type="hidden" id="clinic_id" name="" value="' . $cunique . '" />
 
     
     <div class="service-details-img-section">
@@ -2555,13 +2591,13 @@ if ($result->num_rows > 0) {
             </div>
             <div style="width: 100%; margin: auto;">';
 
-        if ($row['ratings_count'] >= 10) {
-            echo '<a href="service-reviews.php?cunique=' . $row['cunique'] . '&id=' . $row['id'] . '" style="text-decoration: none; color: #212121;"><p class="service-rating">' . $avgRating . ' <i class="fa-solid fa-star" id="service-star" style="color: #0CB4BF;"></i> <u>'. $row['ratings_count'] . ' reviews</u></p></a>';
-        } else {
-            echo '<a href="service-reviews.php?cunique=' . $row['cunique'] . '&id=' . $row['id'] . '" style="text-decoration: none; color: #212121;"><p class="service-rating">' . $avgRating . ' <i class="fa-solid fa-star" id="service-star" style="color: #0CB4BF;"></i></p></a>';
-        }
+            if ($row['ratings_count'] >= 10) {
+                echo '<a href="service-reviews.php?cunique=' . $row['cunique'] . '&id=' . $row['id'] . '" style="text-decoration: none; color: #212121;"><p class="service-rating">' . $avgRating . ' <i class="fa-solid fa-star" id="service-star" style="color: #0CB4BF;"></i> <u>' . $row['ratings_count'] . ' reviews</u></p></a>';
+            } else {
+                echo '<a href="service-reviews.php?cunique=' . $row['cunique'] . '&id=' . $row['id'] . '" style="text-decoration: none; color: #212121;"><p class="service-rating">' . $avgRating . ' <i class="fa-solid fa-star" id="service-star" style="color: #0CB4BF;"></i></p></a>';
+            }
 
-        echo '</div>
+            echo '</div>
         </div>
         <div class="pricing-container">
             <div style="width: 100%;">
@@ -2573,7 +2609,7 @@ if ($result->num_rows > 0) {
 
     <div class="consultation-fee-box">
         <h5 class="service-consultation-price" style="margin-left:25px;">
-            Consultation fee - ' .convertCurrency($row['scprice'])  . '<br>
+            Consultation fee - ' . convertCurrency($row['scprice'])  . '<br>
             <span style="font-weight: 400; margin-left: 0px;"><i class="fa-solid fa-stopwatch"></i> ' . $row['stime'] . '</span>
         </h5>
     </div>
@@ -2596,339 +2632,348 @@ if ($result->num_rows > 0) {
     </div>
 	
 	';
-    }
-} else { echo '<p>No service to display at the moment.</p>'; }?>
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
-<script>
-    $(document).ready(function(){
-
-        // $("input[name='example']").change(function(){
-        //     var selectedValue = $("input[name='example']:checked").val();
-
-        //     if(selectedValue != 'any') {
-        //         $("#text-input").hide()
-        //     }else {
-        //         $("#text-input").show()
-        //     }
-        // });
-
-        var discountmodal = document.getElementById('discountModal');
-        discountmodal.style.display = 'block';
-
-    });
-</script>
-<script>
-
-   mobiscroll.setOptions({
-        locale: mobiscroll.localeEn,  // Specify language like: locale: mobiscroll.localePl or omit setting to use default
-        theme: 'ios',                 // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light',         // More info about themeVariant: https://mobiscroll.com/docs/javascript/calendar/api#opt-themeVariant
-    });
-
-    mobiscroll.datepicker('#date-input', {
-        controls: ['calendar'],       // More info about controls: https://mobiscroll.com/docs/javascript/calendar/api#opt-controls
-        display: 'inline'  ,
-        touchUi: true ,
-        dateFormat: 'YYYY-MM-DD' ,
-
-    });
-
-</script>
-
-<script>
-    var time = null;
-    var expert= 'any';
-    var note =null;
-    var discount=0;
-
-    function openCalendar() {
-        var calendarmodal = document.getElementById('calendarModal');
-        calendarmodal.style.display = 'block';
-
-    }
-
-     function openTime() {
-    var inputDate = document.getElementById('date-input').value;
-    var dateParts = inputDate.split("-");
-    var formattedInputDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
-
-    const now = new Date();
-    now.setDate(now.getDate() + 2); // Set to two days ahead of the current date
-    const formattedNow = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-    if (formattedInputDate < formattedNow) {
-        var error = document.getElementById('error_message');
-        error.style.display = "block";
+        }
     } else {
-        var calendarmodal = document.getElementById('calendarModal');
-        var timemodal = document.getElementById('timeModal');
-        calendarmodal.style.display = 'none';
-        timemodal.style.display = 'block';
-    }
-}
+        echo '<p>No service to display at the moment.</p>';
+    } ?>
 
-    function openDiscount() {
-        var expertmodal = document.getElementById('expertModal');
-        var discountmodal = document.getElementById('discountModal');
-        discountmodal.style.display = 'block';
-        expertmodal.style.display = 'none';
-    }
+    <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <script>
+        $(document).ready(function() {
 
-    function backCalendar() {
-        var calendarmodal = document.getElementById('calendarModal');
-        var timemodal = document.getElementById('timeModal');
-        calendarmodal.style.display = 'block';
-        timemodal.style.display = 'none';
-    }
+            // $("input[name='example']").change(function(){
+            //     var selectedValue = $("input[name='example']:checked").val();
 
-    function backTime() {
-        var expertmodal = document.getElementById('expertModal');
-        var timemodal = document.getElementById('timeModal');
-        expertmodal.style.display = 'none';
-        timemodal.style.display = 'block';
-    }
+            //     if(selectedValue != 'any') {
+            //         $("#text-input").hide()
+            //     }else {
+            //         $("#text-input").show()
+            //     }
+            // });
 
-    function backExpert() {
-        var discountmodal = document.getElementById('discountModal');
-        var expertmodal = document.getElementById('expertModal');
-        discountmodal.style.display = 'none';
-        expertmodal.style.display = 'block';
-    }
+            var discountmodal = document.getElementById('discountModal');
+            discountmodal.style.display = 'block';
 
-    function anyexpert(){
-        expert = document.getElementById('any').value;
-        console.log(expert);
-    }
+        });
+    </script>
+    <script>
+        mobiscroll.setOptions({
+            locale: mobiscroll.localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+            theme: 'ios', // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light', // More info about themeVariant: https://mobiscroll.com/docs/javascript/calendar/api#opt-themeVariant
+        });
 
-    window.onclick = function(event) {
-        var calendarmodal = document.getElementById('calendarModal');
-        var timemodal = document.getElementById('timeModal');
-        var expertmodal = document.getElementById('expertModal');
-        var discountmodal = document.getElementById('discountModal');
+        mobiscroll.datepicker('#date-input', {
+            controls: ['calendar'], // More info about controls: https://mobiscroll.com/docs/javascript/calendar/api#opt-controls
+            display: 'inline',
+            touchUi: true,
+            dateFormat: 'YYYY-MM-DD',
 
-        if (event.target == calendarmodal) {
-            calendarmodal.style.display = "none";
+        });
+    </script>
+
+    <script>
+        var time = null;
+        var expert = 'any';
+        var note = null;
+        var discount = 0;
+
+        function openCalendar() {
+            var calendarmodal = document.getElementById('calendarModal');
+            calendarmodal.style.display = 'block';
+
         }
 
-        if (event.target == timemodal) {
-            timemodal.style.display = "none";
+        function openTime() {
+            var inputDate = document.getElementById('date-input').value;
+            var dateParts = inputDate.split("-");
+            var formattedInputDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+
+            const now = new Date();
+            now.setDate(now.getDate() + 2); // Set to two days ahead of the current date
+            const formattedNow = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+            if (formattedInputDate < formattedNow) {
+                var error = document.getElementById('error_message');
+                error.style.display = "block";
+            } else {
+                var calendarmodal = document.getElementById('calendarModal');
+                var timemodal = document.getElementById('timeModal');
+                calendarmodal.style.display = 'none';
+                timemodal.style.display = 'block';
+            }
         }
 
-        if (event.target == expertmodal) {
-            expertmodal.style.display = "none";
+        function openDiscount() {
+            var expertmodal = document.getElementById('expertModal');
+            var discountmodal = document.getElementById('discountModal');
+            discountmodal.style.display = 'block';
+            expertmodal.style.display = 'none';
         }
 
-        if (event.target == discountmodal) {
-            discountmodal.style.display = "none";
+        function backCalendar() {
+            var calendarmodal = document.getElementById('calendarModal');
+            var timemodal = document.getElementById('timeModal');
+            calendarmodal.style.display = 'block';
+            timemodal.style.display = 'none';
         }
-    }
+
+        function backTime() {
+            var expertmodal = document.getElementById('expertModal');
+            var timemodal = document.getElementById('timeModal');
+            expertmodal.style.display = 'none';
+            timemodal.style.display = 'block';
+        }
+
+        function backExpert() {
+            var discountmodal = document.getElementById('discountModal');
+            var expertmodal = document.getElementById('expertModal');
+            discountmodal.style.display = 'none';
+            expertmodal.style.display = 'block';
+        }
+
+        function anyexpert() {
+            expert = document.getElementById('any').value;
+            console.log(expert);
+        }
+
+        window.onclick = function(event) {
+            var calendarmodal = document.getElementById('calendarModal');
+            var timemodal = document.getElementById('timeModal');
+            var expertmodal = document.getElementById('expertModal');
+            var discountmodal = document.getElementById('discountModal');
+
+            if (event.target == calendarmodal) {
+                calendarmodal.style.display = "none";
+            }
+
+            if (event.target == timemodal) {
+                timemodal.style.display = "none";
+            }
+
+            if (event.target == expertmodal) {
+                expertmodal.style.display = "none";
+            }
+
+            if (event.target == discountmodal) {
+                discountmodal.style.display = "none";
+            }
+        }
 
 
 
 
-    function firstexpert(){
+        function firstexpert() {
 
-         expert = document.getElementById('firstEX1').value;
+            expert = document.getElementById('firstEX1').value;
 
 
-         console.log(expert);
-    }
-    function secondexpert(){
-       expert = document.getElementById('secondEX').value;
-       console.log(expert);
-    }
-    function thirdexpert(){
-       expert = document.getElementById('thirdEX').value;
-       console.log(expert);
-    }
-    function function1(){
-        time="10:00:00";
+            console.log(expert);
+        }
 
-    }
-    function function2(){
-        time="11:00:00";
+        function secondexpert() {
+            expert = document.getElementById('secondEX').value;
+            console.log(expert);
+        }
 
-    }
-    function function3(){
-        time="12:00:00";
+        function thirdexpert() {
+            expert = document.getElementById('thirdEX').value;
+            console.log(expert);
+        }
 
-    }
-    function function4(){
-        time="13:00:00";
+        function function1() {
+            time = "10:00:00";
 
-    }
-    function function5(){
-        time="14:00:00";
+        }
 
-    }
-    function function6(){
-        time="15:00:00";
+        function function2() {
+            time = "11:00:00";
 
-    }
-    function function7(){
-        time="16:00:00";
+        }
 
-    }
-    function  function8(){
-        time="17:00:00";
+        function function3() {
+            time = "12:00:00";
 
-    }
+        }
 
-    function openExpert() {
-        condition1 = document.getElementById('condition1').value;
-        condition2 = document.getElementById('condition2').value;
-        condition3 = document.getElementById('condition3').value;
+        function function4() {
+            time = "13:00:00";
 
-            if(condition1==''){
-                console.log(condition1,condition2,condition3);
+        }
+
+        function function5() {
+            time = "14:00:00";
+
+        }
+
+        function function6() {
+            time = "15:00:00";
+
+        }
+
+        function function7() {
+            time = "16:00:00";
+
+        }
+
+        function function8() {
+            time = "17:00:00";
+
+        }
+
+        function openExpert() {
+            condition1 = document.getElementById('condition1').value;
+            condition2 = document.getElementById('condition2').value;
+            condition3 = document.getElementById('condition3').value;
+
+            if (condition1 == '') {
+                console.log(condition1, condition2, condition3);
                 document.getElementById('firstDiv').style.display = 'none';
             }
-            if(condition2==''){
+            if (condition2 == '') {
                 document.getElementById('secondDiv').style.display = 'none';
             }
-            if(condition3==''){
+            if (condition3 == '') {
                 document.getElementById('thirdDiv').style.display = 'none';
             }
 
-        var timemodal = document.getElementById('timeModal');
-        var expertmodal = document.getElementById('expertModal');
-        timemodal.style.display = 'none';
-        expertmodal.style.display = 'block';
+            var timemodal = document.getElementById('timeModal');
+            var expertmodal = document.getElementById('expertModal');
+            timemodal.style.display = 'none';
+            expertmodal.style.display = 'block';
 
-    }
+        }
 
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        $('#discountCode').on('input', function() {
-            couponcheck();
+            $('#discountCode').on('input', function() {
+                couponcheck();
+            });
+
+            function couponcheck() {
+                var code = $("#discountCode").val();
+
+                $.ajax({
+                    url: "validate-voucher.php",
+                    type: 'POST',
+                    data: {
+                        code: code,
+                        id: <?php echo $_SESSION['id']; ?>
+                    },
+                    success: function(data) {
+                        if (data == 'valid') {
+                            document.getElementById("alert_success").style.display = 'block';
+                            document.getElementById("alert_danger").style.display = 'none';
+                            discount = 1;
+                            $("#voucher").val(code)
+                        } else {
+                            document.getElementById("alert_danger").style.display = 'block';
+                            document.getElementById("alert_success").style.display = 'none';
+                        }
+                    }
+                });
+            }
         });
 
-        function couponcheck() {
-            var code = $("#discountCode").val();
+        function confirmSched() {
+            // window.location.href = 'create-checkout-session.php';
 
-            $.ajax({
-                url: "validate-voucher.php",
-                type: 'POST',
-                data: {
-                    code: code,
-                    id: <?php echo $_SESSION['id']; ?>
-                },
-                success: function(data) {
-                    if (data == 'valid') {
-                        document.getElementById("alert_success").style.display='block';
-                        document.getElementById("alert_danger").style.display='none';
-                        discount=1;
-                        $("#voucher").val(code)
-                    } else {
-                        document.getElementById("alert_danger").style.display='block';
-                        document.getElementById("alert_success").style.display='none';
-                    }
-                }
-            });
-        }
-    });
+            var form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', 'create-checkout-session-uae.php');
 
-    function confirmSched() {
-        // window.location.href = 'create-checkout-session.php';
+            var date = document.getElementById('date-input').value;
 
-        var form = document.createElement('form');
-        form.setAttribute('method', 'post');
-        form.setAttribute('action', 'create-checkout-session-uae.php');
-
-        var date = document.getElementById('date-input').value;
-
-        var scprice = document.getElementById('smallprice').value;
-        var sprice = document.getElementById('bigprice').value;
-        var user = document.getElementById('profile').value;
-        var sname = document.getElementById('sname').value;
-        var username = document.getElementById('username').value;
-        var cname = document.getElementById('cname').value;
-        var scountry = document.getElementById('scountry').value;
-        var scity = document.getElementById('scity').value;
-        var transaction = document.getElementById('transaction').value;
-        var clinic_id =document.getElementById('clinic_id').value;
-        var service_id =document.getElementById('service_id').value;
-        var duration =document.getElementById('duration').value;
-        var code = document.getElementById('voucher').value;
+            var scprice = document.getElementById('smallprice').value;
+            var sprice = document.getElementById('bigprice').value;
+            var user = document.getElementById('profile').value;
+            var sname = document.getElementById('sname').value;
+            var username = document.getElementById('username').value;
+            var cname = document.getElementById('cname').value;
+            var scountry = document.getElementById('scountry').value;
+            var scity = document.getElementById('scity').value;
+            var transaction = document.getElementById('transaction').value;
+            var clinic_id = document.getElementById('clinic_id').value;
+            var service_id = document.getElementById('service_id').value;
+            var duration = document.getElementById('duration').value;
+            var code = document.getElementById('voucher').value;
 
 
-        if(expert=='any'){
-            var note =document.getElementById('specifyPref').value;
-        }else{
-            var note=null;
-        }
-
-        console.log(date,time,scprice,sprice,user,expert,transaction );
-
-        date = '<?= htmlspecialchars($keydate) ?>'
-        time = '<?= htmlspecialchars($keytime) ?>'
-        expert = '<?= htmlspecialchars($keyexpert) ?>'
-        note = '<?= htmlspecialchars($keynote) ?>'
-        
-        // // Add any data you need to pass as hidden input fields
-        var inputData = {
-            keydate: date,
-            keytime: time,
-            keyscprice: scprice,
-            keysprice: sprice,
-            keyuser: user,
-            keysname: sname,
-            keyusername: username,
-            keycname: cname,
-            keyexpert:expert,
-            keyscity:scity,
-            keyscountry:scountry,
-            keytransaction:transaction,
-            keyclinic_id:clinic_id,
-            keynote:note,
-            keyservice_id:service_id,
-            keyduration:duration,
-            keydiscount:discount,
-            voucher:code
-
-            // Add more key-value pairs as needed
-        };
-
-        // Iterate through the data and create input fields
-        for (var key in inputData) {
-            if (inputData.hasOwnProperty(key)) {
-                var input = document.createElement('input');
-                input.setAttribute('type', 'hidden');
-                input.setAttribute('name', key);
-                input.setAttribute('value', inputData[key]);
-                form.appendChild(input);
+            if (expert == 'any') {
+                var note = document.getElementById('specifyPref').value;
+            } else {
+                var note = null;
             }
+
+            console.log(date, time, scprice, sprice, user, expert, transaction);
+
+            date = '<?= htmlspecialchars($keydate) ?>'
+            time = '<?= htmlspecialchars($keytime) ?>'
+            expert = '<?= htmlspecialchars($keyexpert) ?>'
+            note = '<?= htmlspecialchars($keynote) ?>'
+
+            // // Add any data you need to pass as hidden input fields
+            var inputData = {
+                keydate: date,
+                keytime: time,
+                keyscprice: scprice,
+                keysprice: sprice,
+                keyuser: user,
+                keysname: sname,
+                keyusername: username,
+                keycname: cname,
+                keyexpert: expert,
+                keyscity: scity,
+                keyscountry: scountry,
+                keytransaction: transaction,
+                keyclinic_id: clinic_id,
+                keynote: note,
+                keyservice_id: service_id,
+                keyduration: duration,
+                keydiscount: discount,
+                voucher: code
+
+                // Add more key-value pairs as needed
+            };
+
+            // Iterate through the data and create input fields
+            for (var key in inputData) {
+                if (inputData.hasOwnProperty(key)) {
+                    var input = document.createElement('input');
+                    input.setAttribute('type', 'hidden');
+                    input.setAttribute('name', key);
+                    input.setAttribute('value', inputData[key]);
+                    form.appendChild(input);
+                }
+            }
+
+            // Append the form to the document body
+            document.body.appendChild(form);
+            // Submit the form
+            form.submit();
+        }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("menuModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("menuBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("closeMenu")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
         }
 
-        // Append the form to the document body
-        document.body.appendChild(form);
-        // Submit the form
-        form.submit();
-    }
-
-</script>
-
-<script>
-    // Get the modal
-    var modal = document.getElementById("menuModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("menuBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("closeMenu")[0];
-
-    // When the user clicks the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-</script>
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
 </body>
+
 </html>
