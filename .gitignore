@@ -4,3 +4,4 @@ app_x_uae/connection.php
 app_x_views/connection.php
 app_x_views/server-connect.php
 app_x_views/server.blade.php
+app_uae/server.blade.php

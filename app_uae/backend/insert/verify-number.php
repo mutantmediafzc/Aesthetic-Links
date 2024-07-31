@@ -17,14 +17,29 @@ $auth_token = '3b4b407db39339d0d388d7838322ee6c';
 $twilio_number = '+447888868959';
 
 $client = new Client($account_sid, $auth_token);
-$registration_data = isset($_SESSION['registration_data']) ? $_SESSION['registration_data'] : [];
+if (isset($_SESSION['registration_data'])) {
+    $registration_data = $_SESSION['registration_data'];
 
-$full_name = isset($registration_data['full_name']) ? $registration_data['full_name'] : '';
-$email = isset($registration_data['email']) ? $registration_data['email'] : '';
-$password = isset($registration_data['password']) ? $registration_data['password'] : '';
-$referral = isset($registration_data['referral']) ? $registration_data['referral'] : '';
-$userlevel = isset($registration_data['userlevel']) ? $registration_data['userlevel'] : 1;
-$profilelevel = isset($registration_data['profilelevel']) ? $registration_data['profilelevel'] : 0;
+    $full_name = isset($registration_data['full_name']) ? $registration_data['full_name'] : '';
+    $email = isset($registration_data['email']) ? $registration_data['email'] : '';
+    $password = isset($registration_data['password']) ? $registration_data['password'] : '';
+    $referral = isset($registration_data['referral']) ? $registration_data['referral'] : '';
+    $userlevel = isset($registration_data['userlevel']) ? $registration_data['userlevel'] : 1;
+    $profilelevel = isset($registration_data['profilelevel']) ? $registration_data['profilelevel'] : 0;
+} else {
+    $registration_data = $_SESSION['registration_data_social'];
+
+    $full_name = isset($registration_data['full_name']) ? $registration_data['full_name'] : '';
+    $email = isset($registration_data['email']) ? $registration_data['email'] : '';
+    $password = isset($registration_data['password']) ? $registration_data['password'] : '';
+    $userunique = $registration_data['userunique'];
+    $socialType = $registration_data['socialType'];
+    $verified = $registration_data['verified'];
+    $userlevel = $registration_data['userlevel'];
+    $profilelevel = $registration_data['profilelevel'];
+    $socialId = $registration_data['socialId'];
+    $socialType = $registration_data['socialType'];
+}
 
 $mobile = isset($_POST['mobile']) ? trim($_POST['mobile']) : '';
 $mobile_code = isset($_POST['mobile_code']) ? trim($_POST['mobile_code']) : '';
@@ -185,23 +200,41 @@ if (empty($errors)) {
                 header('Location: ../../verified-otp.blade.php');
                 exit;
             } else {
-                $uniqid = uniqid();
-                $userunique = uniqid();
-
-                if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, activation_code, mobile, otp, userunique, userlevel, profilelevel, referral) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
-                    $otp = generateOTP();
-                    $stmt->bind_param('ssssssssss', $full_name, $password, $email, $uniqid, $totalmobile, $otp, $userunique, $userlevel, $profilelevel, $referral);
-                    $stmt->execute();
-                    $_SESSION["phone_number"] = $totalmobile;
-                    if (sendOTP($totalmobile, $otp)) {
-                        $_SESSION['message'] = "OTP sent successfully to $totalmobile.";
-                    } else {
-                        $_SESSION['error_message'] = "Failed to send OTP. Please try again.";
+                if (isset($socialType) && !empty($socialType)) {
+                    $uniqid = uniqid();
+                    $userunique = uniqid();
+                    if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, activation_code, mobile, otp, userunique, userlevel, profilelevel, social_id, social_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
+                        $otp = generateOTP();
+                        $stmt->bind_param('sssssssssss', $full_name, $password, $email, $uniqid, $totalmobile, $otp, $userunique, $userlevel, $profilelevel, $socialId, $socialType);
+                        $stmt->execute();
+                        $_SESSION["phone_number"] = $totalmobile;
+                        if (sendOTP($totalmobile, $otp)) {
+                            $_SESSION['message'] = "OTP sent successfully to $totalmobile.";
+                        } else {
+                            $_SESSION['error_message'] = "Failed to send OTP. Please try again.";
+                        }
+                        header('Location: ../../verified-otp.blade.php');
+                        exit;
                     }
-                    header('Location: ../../verified-otp.blade.php');
-                    exit;
                 } else {
-                    $errors['database'] = 'There was an error preparing the database statement for account creation.';
+                    $uniqid = uniqid();
+                    $userunique = uniqid();
+
+                    if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, activation_code, mobile, otp, userunique, userlevel, profilelevel, referral) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
+                        $otp = generateOTP();
+                        $stmt->bind_param('ssssssssss', $full_name, $password, $email, $uniqid, $totalmobile, $otp, $userunique, $userlevel, $profilelevel, $referral);
+                        $stmt->execute();
+                        $_SESSION["phone_number"] = $totalmobile;
+                        if (sendOTP($totalmobile, $otp)) {
+                            $_SESSION['message'] = "OTP sent successfully to $totalmobile.";
+                        } else {
+                            $_SESSION['error_message'] = "Failed to send OTP. Please try again.";
+                        }
+                        header('Location: ../../verified-otp.blade.php');
+                        exit;
+                    } else {
+                        $errors['database'] = 'There was an error preparing the database statement for account creation.';
+                    }
                 }
             }
         }

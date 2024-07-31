@@ -94,6 +94,7 @@ if ($stmt = $con->prepare('SELECT id , username , userlevel FROM accounts WHERE 
 
             unset($_SESSION["phone_number"]);
             unset($_SESSION['registration_data']);
+            unset($_SESSION['registration_data_social']);
             unset($_SESSION['old_input']);
             unset($_SESSION['query_params']);
 

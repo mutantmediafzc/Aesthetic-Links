@@ -4,8 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 // Change this to your connection info.
 $DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'u670635350_anl';
-$DATABASE_PASS = '1ivanYaroslav#';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
 $DATABASE_NAME = 'u670635350_anlapp';
 
 // Try and connect using the info above.

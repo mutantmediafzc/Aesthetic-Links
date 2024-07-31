@@ -39,6 +39,12 @@ $_SESSION['login_type'] = "login.blade.service.php?cunique={$cunique}&id={$cid}&
 <head>
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="appleid-signin-client-id" content="[CLIENT_ID]">
+  <meta name="appleid-signin-scope" content="[SCOPES]">
+  <meta name="appleid-signin-redirect-uri" content="[REDIRECT_URI]">
+  <meta name="appleid-signin-state" content="[STATE]">
+  <meta name="appleid-signin-nonce" content="[NONCE]">
+  <meta name="appleid-signin-use-popup" content="true">
   <!-- Google Tag Manager -->
   <script>
     (function(w, d, s, l, i) {
@@ -259,7 +265,9 @@ $_SESSION['login_type'] = "login.blade.service.php?cunique={$cunique}&id={$cid}&
 
   </form>
 
-
+  <!-- Apple JS framework -->
+  <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+  <!-- Apple JS framework -->
   <script>
     function myFunction() {
       var x = document.getElementById("password");
